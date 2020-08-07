@@ -1,0 +1,42 @@
+<div id="mynav">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <ul class="nav navbar-nav">
+                 <li <%if(active=="index"){%> class="active" <%}%> > <a  href="/">部门说说</a></li>
+                 <!-- <li <%if(active=="allmoments"){%> class="active" <%}%> > <a  href="/allmoments">全部说说</a></li> -->
+                 <% if(login){%>
+                 <li <%if(active=="personalmoments"){%> class="active" <%}%> > <a  href="/mymoments/<%=username%>">我的说说</a></li>
+                 <li <%if(active=="talkcenter"){%> class="active" <%}%> > <a  href="/talkcenter/<%=username%>">会话中心</a></li>
+                 <li <%if(active=="friendslist"){%> class="active" <%}%> > <a  href="/friendlist/<%=username%>">关注列表</a></li>
+
+                 <%}%>
+                 <li <%if(active=="allusers"){%> class="active" <%}%> > <a  href="/alluser">全部成员</a></li>
+  
+           </ul>
+            </div>
+          
+            <div id="navbar"  >
+              <form class="navbar-form navbar-right mynav">
+                <!-- <div class="form-group">
+                  <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" placeholder="Password" class="form-control">
+                </div> -->
+                <% if(login){%>
+                  <div class="done">
+                  <span>欢迎您<%=username%></span>
+                  <a href="/usercenter"> 个人中心<img class="icon" src="/avatar/usercenter.png"/></a>
+                  <a href="/exist"> 退出 <img class="icon" src="/avatar/exist.png" /> </a>
+                </div>
+                <% }else{%>
+                  <a href="/login"> <input type="button" class="btn btn-success" value="Sign in" /></a>
+                  <a href="/register"> <input type="button" class="btn btn-default" value="Sign up" /></a>
+                  <% }%>
+              </form>       
+            </div><!--/.navbar-collapse -->
+          </div>
+        </nav>
+    </div>
+   
